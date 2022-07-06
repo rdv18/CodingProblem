@@ -1,0 +1,57 @@
+class Solution {
+    public boolean strongPasswordCheckerII(String password) {
+        
+        if(password.length()<8)
+        {
+            return false;
+        }
+        
+        String ascii = "!@#$%^&*()-+";
+        
+        boolean up=false;
+        boolean lr=false;
+        boolean d=false;
+        boolean isAscii=false;
+        
+        
+        char c1='`';
+        
+        for(int i=0;i<password.length();i++)
+        {
+            char c=password.charAt(i);
+            
+            if(Character.isUpperCase(c))
+            {
+                up=true;
+            }
+            else if(Character.isLowerCase(c))
+            {
+                lr=true;
+            }
+            else if(Character.isDigit(c))
+            {
+                d=true;
+            }
+            else if(ascii.contains(String.valueOf(c)))
+            {
+             isAscii = true;
+            }
+            
+            if(c==c1)
+            {
+                return false;
+            }
+            c1=c;
+        }
+        
+        if(up && lr && d && isAscii)
+        {
+            return true;
+        }
+        
+        else
+        {
+            return false;
+        }
+    }
+}
