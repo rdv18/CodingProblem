@@ -1,0 +1,64 @@
+//ALTERNATIVE
+
+
+class Solution {
+    public int removeElement(int[] nums, int val) {
+        
+        int res=0;
+        
+        for(int i=0;i<nums.length;i++)
+        {
+            if(nums[i]!=val)
+            {
+                nums[res]=nums[i];
+                res++;
+            }
+        }
+        return res;
+        
+        
+    }
+}
+
+**********************************************
+
+
+
+
+class Solution {
+    public int removeElement(int[] nums, int val) {
+        
+        int res=0;
+        
+        int ind=0;
+        
+        List<Integer> index=new ArrayList<Integer>();
+        
+        for(int i=0;i<nums.length;i++)
+        {
+            if(nums[i]==val)
+            {
+                
+                index.add(i);
+                
+                
+            }
+            else
+            {
+                ind++;
+                
+                if(!index.isEmpty() && res<=index.size())
+                {
+                   nums[index.get(res)]=nums[i]; 
+                    
+                    index.add(i);
+                
+                   res++;
+                }
+                
+            }
+        }
+        return ind;
+        
+    }
+}
