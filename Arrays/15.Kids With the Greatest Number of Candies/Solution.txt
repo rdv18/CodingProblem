@@ -1,39 +1,29 @@
 class Solution {
-    public int mostWordsFound(String[] sentences) {
+    public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
         
-        boolean word=true;
-        int res=0;
-        int count=0;
+        int big=0;
+        List<Boolean> res=new ArrayList<Boolean>();
         
-        for(int i=0;i<sentences.length;i++)
+        for(int i=0;i<candies.length;i++)
         {
-            String s=sentences[i];
-            count=0;
-            word=true;
-            
-            for(int j=0;j<s.length();j++)
-            {
-                char c=s.charAt(j);
-                
-                if(Character.isAlphabetic(c))
-                {
-                    if(word)
-                    {
-                        count++;
-                    }
-                    word=false;
-                }
-                else
-                {
-                   word=true; 
-                }
-                
-            }
-            
-            res=Math.max(res,count);
+           big=Math.max(big,candies[i]); 
         }
         
+        int threshold=big-extraCandies;
+        
+        for(int i=0;i<candies.length;i++)
+        {
+           if(threshold>candies[i])
+           {
+               res.add(false);
+           }
+            else
+            {
+                res.add(true);
+            }
+        }
         return res;
+        
         
     }
 }
