@@ -1,0 +1,57 @@
+/*
+char findFirst(String input)
+Finds the first character that does not repeat anywhere in the input string
+If all characters are repeated, return 0
+Given "apple", the answer is "a"
+Given "racecars", the answer is "e"
+Given "ababdc", the answer is "d
+
+*/
+
+package demo;
+
+import java.util.*;
+
+
+
+public class p1  {
+
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String s="apple";
+		
+		Map<Character,Integer> mp=new HashMap<Character,Integer>();
+		
+		for(int i=0;i<s.length();i++)
+		{
+			char c=s.charAt(i);
+			
+			if(!mp.containsKey(c))
+			{
+				mp.put(c, 1);
+			}
+			else
+			{
+				int times=mp.get(c);
+				times++;
+				
+				mp.put(c, times);
+			}
+		}
+		
+		for(int i=0;i<s.length();i++)
+		{
+			char c=s.charAt(i);
+			
+			if(mp.get(c)==1)
+			{
+				System.out.println("Ans"+c);
+				break;
+			}
+		}
+		
+		
+	}
+
+}
