@@ -1,0 +1,7 @@
+/*
+ There are n students numbered 1,2,3...n sitting in a circle. The teacher starts singing from student 1 and
+	as the singing ends, the teacher removes the student at that point. The teacher resumes from the next 
+	student. The student that is left at the last is elected as class president. You have to complete the
+	"whoIsElected(int n, int k)" function and return the number of the student who will become the class
+	president.
+*/
